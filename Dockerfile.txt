@@ -1,0 +1,18 @@
+FROM centos
+
+MAINTAINER gvanitha.shri@gmail.com
+
+RUN yum install java -y && \
+    mkdir /usr/lib/jenkins && \
+    yum install wget -y && \
+    yum install -y maven
+
+WORKDIR /usr/lib/jenkins
+
+RUN wget https://updates.jenkins-ci.org/download/war/2.284/jenkins.war
+
+USER root
+
+CMD ["java", "-jar", "/usr/lib/jenkins/jenkins.war"]
+
+EXPOSE 8080

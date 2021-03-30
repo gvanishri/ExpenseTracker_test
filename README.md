@@ -2,6 +2,8 @@
 
 ** Version 1.0.0 **
 
+## About / Synopsis
+
 Code and documentation
 
 A simple readme file to understand the Expense Tracker Project

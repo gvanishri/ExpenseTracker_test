@@ -1,6 +1,9 @@
 pipeline {
-    agent any
-
+    agent {
+        dockerfile{
+            label "docker"
+        }
+    }
  
     stages {
         stage('clone') {
@@ -23,11 +26,13 @@ pipeline {
                 sh '/usr/bin/mvn clean install'
             }
         }
+        /*
         stage('deploy') {
             steps {
                 sh 'systemctl start expense &'
             }
         }
+        */
     }
    
 }

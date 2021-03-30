@@ -4,20 +4,42 @@
 
 ## About / Synopsis
 
-Code and documentation
+* Project status: working/prototype
 
-A simple readme file to understand the Expense Tracker Project
+## Table of contents
+
+Use for instance <https://github.com/gvanishri/ExpenseTracker.git>:
+
+>   * [Project](#project)
+
+>   * [Contribution](#contribution)
+
+>   * [License](#license)
 
 ---
 
-## Project development
+## Project
+
+* Expense Splitter
+
+* Expense Splitter - Login
+
+* Expense Splitter - Register User
+
+* Participants
+
+* Expense Dashboard
+
+---
+
+## Contribution
 
 [RRC Academy](https://www.rrcacademy.com/ "RRC Academy")
 
-***
+---
 
-## License & Copyright
+## License
 
 RRC Academy - A global education and training partner
 
-***
+---

@@ -30,13 +30,9 @@ Use for instance <https://github.com/gvanishri/ExpenseTracker.git>:
 
 * Expense Dashboard
 
----
-
 ## Contribution
 
 [RRC Academy](https://www.rrcacademy.com/ "RRC Academy")
-
----
 
 ## License
 

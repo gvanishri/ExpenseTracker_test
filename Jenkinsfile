@@ -5,7 +5,7 @@ pipeline {
     stages {
         stage('clone') {
             steps {
-                git 'https://github.com/gvanishri/feb_2021_5.git'
+                git 'https://github.com/gvanishri/ExpenseTracker.git'
             }
         }
         stage('compile') {

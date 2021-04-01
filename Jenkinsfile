@@ -1,10 +1,5 @@
 pipeline {
-    agent {
-        dockerfile{
-            label "docker"
-        }
-    }
- 
+
     stages {
         stage('clone') {
             steps {

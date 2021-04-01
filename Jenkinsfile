@@ -1,4 +1,5 @@
 pipeline {
+    agent any
 
     stages {
         stage('clone') {
@@ -14,7 +15,7 @@ pipeline {
         stage('test') {
             steps {
                 sh '/usr/bin/mvn test'
-            }
+            }            
         }
         stage('package') {
             steps {

@@ -22,8 +22,6 @@ pipeline {
                 sh '/usr/bin/mvn clean install'
             }
         }
-        
-
         /*
         stage('deploy') {
             steps {
@@ -32,10 +30,11 @@ pipeline {
         }
         */
     }
-
+/*
     post {
         always {
             cleanWs()
         }
     }
+*/
 }

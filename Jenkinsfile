@@ -1,14 +1,10 @@
 pipeline {
-    /*
     environment {
         registry = "gvanishri/expensetracker"
         registryCredential = 'dockerID'
-    }
-    */
+    }    
 
     agent any
-
-    def app
 
     stages {
         stage('clone') {
@@ -30,8 +26,7 @@ pipeline {
             steps {
                 sh '/usr/bin/mvn clean install'
             }
-        }
-        /*
+        }        
         stage('Build image') {
             steps {
                 script {
@@ -39,13 +34,13 @@ pipeline {
                 }
             }
         }
-        */
-        stage('Build image') {
-            /* This builds the actual image; synonymous to
-            * docker build on the command line */
-
-            app = docker.build("getintodevops/hellonode")
-        }
+        stage('Push image') {
+            steps {
+                script {
+                    docker.push registry + ":$BUILD_NUMBER"
+                }
+            }
+        }        
         /*
         stage('deploy') {
             steps {

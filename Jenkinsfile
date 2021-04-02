@@ -2,6 +2,7 @@ pipeline {
     environment {
         registry = "gvanishri/expensetracker"
         registryCredential = 'dockerID'
+        dockerimage = ''
     }    
 
     agent any
@@ -26,7 +27,8 @@ pipeline {
             steps {
                 sh '/usr/bin/mvn clean install'
             }
-        }        
+        } 
+        /*       
         stage('Build image') {
             steps {
                 script {
@@ -34,13 +36,31 @@ pipeline {
                 }
             }
         }
+        */
+        stage('Build image') {
+            steps {
+                script {
+                    dockerimage = docker.build registry + ":$BUILD_NUMBER"
+                }
+            }
+        }
+
         stage('Push image') {
             steps {
                 script {
-                    docker.push registry + ":$BUILD_NUMBER"
+                    docker.withRegistry( 'https://registry.hub.docker.com', registryCredential ) {
+                    dockerImage.push("$BUILD_NUMBER")
+                    dockerImage.push('latest')
                 }
             }
-        }        
+        }  
+
+        stage('Remove Unused docker image') {
+            steps{
+                sh "docker rmi $registry:$BUILD_NUMBER"
+                sh "docker rmi $registry:latest"
+            }
+        }
         /*
         stage('deploy') {
             steps {

@@ -1,7 +1,10 @@
 pipeline {
-    agent any
+    environment {
+        registry = "gvanishri/expensetracker"
+        registryCredential = 'dockerID'
+    } 
 
-    def app
+    agent any
 
     stages {
         stage('clone') {
@@ -25,10 +28,11 @@ pipeline {
             }
         }
         stage('Build image') {
-            /* This builds the actual image; synonymous to
-            * docker build on the command line */
-
-            app = docker.build("expensetracker/appnode")
+            steps {
+                script {
+                    docker.build registry + ":$BUILD_NUMBER"
+                }
+            }
         }
         /*
         stage('deploy') {

@@ -1,18 +1,9 @@
-FROM centos:latest
+FROM openjdk:8
 
 MAINTAINER gvanitha.shri@gmail.com
 
-RUN yum install java -y && \
-    mkdir /usr/lib/jenkins && \
-    yum install wget -y && \
-    yum install -y maven
+EXPOSE 80
 
-WORKDIR /usr/lib/jenkins
+ADD target/ExpenseTracker-Spring-1.0-SNAPSHOT.jar ExpenseTracker-Spring-1.0-SNAPSHOT.jar
 
-RUN wget https://updates.jenkins-ci.org/download/war/2.284/jenkins.war
-
-USER root
-
-CMD ["java", "-jar", "/usr/lib/jenkins/jenkins.war"]
-
-EXPOSE 8080
+ENTRYPOINT ["java","-jar","/ExpenseTracker-Spring-1.0-SNAPSHOT.jar"]

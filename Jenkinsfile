@@ -23,6 +23,13 @@ pipeline {
             }
         }
         /*
+        stage('Push image') {
+            docker.withRegistry('https://registry.hub.docker.com', 'git') {            
+                app.push("${env.BUILD_NUMBER}")            
+                app.push("latest")        
+            }    
+        }
+        
         stage('deploy') {
             steps {
                 sh 'systemctl start expense &'
@@ -30,5 +37,10 @@ pipeline {
         }
         */
     }
-   
+
+    post {
+        always {
+            cleanWs()
+        }
+    }
 }

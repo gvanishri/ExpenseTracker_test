@@ -22,14 +22,14 @@ pipeline {
                 sh '/usr/bin/mvn clean install'
             }
         }
-        /*
+        
         stage('Push image') {
-            docker.withRegistry('https://registry.hub.docker.com', 'git') {            
+            docker.withRegistry('https://hub.docker.com/', 'dockerID') {            
                 app.push("${env.BUILD_NUMBER}")            
                 app.push("latest")        
             }    
         }
-        
+        /*
         stage('deploy') {
             steps {
                 sh 'systemctl start expense &'

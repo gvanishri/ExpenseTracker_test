@@ -2,7 +2,7 @@ pipeline {
     environment {
         registry = "gvanishri/expensetracker"
         registryCredential = 'dockerID'
-        dockerimage = ''
+        dockerImage = ''
     }    
 
     agent any
@@ -40,7 +40,7 @@ pipeline {
         stage('Build image') {
             steps {
                 script {
-                    dockerimage = docker.build registry + ":$BUILD_NUMBER"
+                    dockerImage = docker.build registry + ":$BUILD_NUMBER"
                 }
             }
         }

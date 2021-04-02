@@ -1,6 +1,8 @@
 pipeline {
     agent any
 
+    def app
+
     stages {
         stage('clone') {
             steps {
@@ -21,6 +23,12 @@ pipeline {
             steps {
                 sh '/usr/bin/mvn clean install'
             }
+        }
+        stage('Build image') {
+            /* This builds the actual image; synonymous to
+            * docker build on the command line */
+
+            app = docker.build("expensetracker/appnode")
         }
         /*
         stage('deploy') {

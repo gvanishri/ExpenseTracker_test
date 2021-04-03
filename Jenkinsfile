@@ -54,7 +54,8 @@ pipeline {
         
         stage('Remove Unused docker image') {
             steps{
-                sh "docker rmi $registry:$BUILD_NUMBER"                                
+                sh "docker rmi $registry:$BUILD_NUMBER"
+                sh "docker rmi registry.hub.docker.com/$registry:latest"
                 sh "docker rmi registry.hub.docker.com/$registry:1.0.$BUILD_NUMBER"
             }
         }        

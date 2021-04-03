@@ -58,10 +58,11 @@ pipeline {
             }
         }
     }
-
+/*
     post {
         always {
             cleanWs()
         }
     }
+*/
 }

@@ -1,4 +1,6 @@
-# ExpenseTracker
+# Project title
+
+### ExpenseTracker
 
 ** Version 1.0.0 **
 
@@ -6,9 +8,13 @@
 
 * Project status: working/prototype
 
-## Table of contents
+## Getting started
 
-Use for instance <https://github.com/gvanishri/ExpenseTracker.git>:
+Instructios will guide you to copy the project and execute it on your environment for develoment and testing purposes.Deployment notes guides you to deploy the project on a live system.
+
+>   * [Prerequisites](#prerequisites)
+
+>   * [Installation](#installation)
 
 >   * [Project](#project)
 
@@ -17,6 +23,36 @@ Use for instance <https://github.com/gvanishri/ExpenseTracker.git>:
 >   * [License](#license)
 
 ---
+
+## Prerequisites
+
+1. git
+
+2. wget 
+
+3. Java 8 runtime environments, both 32-bit and 64-bit versions are supported.
+
+4. Jenkins
+
+5. Maven
+
+to install the above prerequisites in your enviroment you need administrator privileges, then  copy the provisioned anisble-playbook in the github repository.
+
+github repository  link https://github.com/gvanishri/ExpenseTracker.git provided.
+
+## Installation
+
+A step by step guide to setup develoment enviroment
+
+1. Using - Jenkins plugin manage credentials - establish docker hub credentials
+
+2. Deploy jenkins pipeline job
+
+3. Jenkins build will push the image to docker hub 
+
+4. Runtime Setup - setup kubernetes server environment - you can deploy the docker hub image      using yaml configuration files in the github repository.
+
+5. After kubernetes orchestration - hit the browser (e.g http://localhost:8080)
 
 ## Project
 
